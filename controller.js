@@ -5,8 +5,15 @@ angular.module('quoteApp').controller('mainController', function($scope, dataSer
 	}
 	$scope.getQuotes();
 
-	$scope.addData = function(quote) {
-		dataService.addData(quote);
+	$scope.addData = function(){
+  		var newQuote = {
+    		text: $scope.newQuoteText,
+    		author: $scope.newQuoteAuthor
+  		}
+  		if(dataService.addData(newQuote)) {
+    		$scope.newQuoteText = '';
+    		$scope.newQuoteAuthor= '';
+  		}
 	}
 
 	$scope.removeData = function(quoteText) {
