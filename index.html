@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="quoteApp">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Quote Book</title>
+        <!-- Stylesheets and Resets -->
+        <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css"/>
+        <link rel="stylesheet" href="styles.css" type="text/css">
+    </head>
+    <body ng-controller="mainController">
+
+        <p ng-repeat = "quote in quotes track by $index">
+            <span class = 'text'>{{quote.text}}</span>
+            <span class = 'author'> -- {{quote.author}}</span>
+            <button ng-click = "removeData(quote.text)">Delete</button>
+        </p>
+
+        <!-- Scripts, Frameworks, Libraries -->
+        <script src="scripts.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+        <script src="quoteApp.js"></script>
+        <script src="controller.js"></script>
+        <script src="dataService.js"></script>
+    </body>
+</html>
